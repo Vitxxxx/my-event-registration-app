@@ -49,6 +49,11 @@ const App = () => {
       }
       fetchUsers();
       window.alert('Пользователь успешно добавлен!');
+      setFormData({
+        name: '',
+        email: '',
+        age: '',
+      });
     } catch (error) {
       window.alert('Ошибка при добавлении пользователя: ' + error.message);
     }
