@@ -48,14 +48,14 @@ const App = () => {
         throw new Error('Failed to add user');
       }
       fetchUsers();
-      window.alert('Пользователь успешно добавлен!');
+      window.alert('User successfully added!');
       setFormData({
         name: '',
         email: '',
         age: '',
       });
     } catch (error) {
-      window.alert('Ошибка при добавлении пользователя: ' + error.message);
+      window.alert('Error adding user: ' + error.message);
     }
   };
 
@@ -68,9 +68,9 @@ const App = () => {
         throw new Error('Failed to delete user');
       }
       fetchUsers();
-      window.alert('Пользователь успешно удален!');
+      window.alert('User successfully deleted!');
     } catch (error) {
-      window.alert('Ошибка при удалении пользователя: ' + error.message);
+      window.alert('Error deleting user: ' + error.message);
     }
   };
 
@@ -104,21 +104,21 @@ const App = () => {
         throw new Error('Failed to update user');
       }
       fetchUsers();
-      window.alert('Пользователь успешно обновлен!');
+      window.alert('User successfully updated!');
     } catch (error) {
-      window.alert('Ошибка при обновлении пользователя: ' + error.message);
+      window.alert('Error updating user: ' + error.message);
     }
   };
 
   return (
     <div>
-      <h1>Регистрационная форма</h1>
+      <h1>Registration Form</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
           value={formData.name}
-          placeholder="Имя и фамилия"
+          placeholder="Name and Surname"
           onChange={handleChange}
           required
         />
@@ -126,7 +126,7 @@ const App = () => {
           type="email"
           name="email"
           value={formData.email}
-          placeholder="Электронная почта"
+          placeholder="Email"
           onChange={handleChange}
           required
         />
@@ -134,22 +134,22 @@ const App = () => {
           type="number"
           name="age"
           value={formData.age}
-          placeholder="Возраст"
+          placeholder="Age"
           onChange={handleChange}
           required
         />
-        <button type="submit">Добавить пользователя</button>
+        <button type="submit">Add User</button>
       </form>
 
-      <h1>Список зарегистрированных пользователей</h1>
+      <h1>List of Registered Users</h1>
       <table>
         <thead>
           <tr>
-            <th>Имя и фамилия</th>
-            <th>Электронная почта</th>
-            <th>Возраст</th>
-            <th>Дата рождения</th>
-            <th>Действия</th>
+            <th>Name and Surname</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Date of Birth</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -160,8 +160,8 @@ const App = () => {
               <td>{user.age}</td>
               <td>{calculateDateOfBirth(user.age)}</td>
               <td>
-                <button onClick={() => handleEdit(user)}>Изменить</button>
-                <button onClick={() => handleDelete(user._id)}>Удалить</button>
+                <button onClick={() => handleEdit(user)}>Edit</button>
+                <button onClick={() => handleDelete(user._id)}>Delete</button>
               </td>
             </tr>
           ))}
@@ -169,13 +169,13 @@ const App = () => {
       </table>
       {editingUser && (
         <div>
-          <h2>Редактирование пользователя</h2>
+          <h2>Edit User</h2>
           <form onSubmit={handleUpdate}>
             <input
               type="text"
               name="name"
               value={formData.name}
-              placeholder="Имя и фамилия"
+              placeholder="Name and Surname"
               onChange={handleChange}
               required
             />
@@ -183,7 +183,7 @@ const App = () => {
               type="email"
               name="email"
               value={formData.email}
-              placeholder="Электронная почта"
+              placeholder="Email"
               onChange={handleChange}
               required
             />
@@ -191,11 +191,11 @@ const App = () => {
               type="number"
               name="age"
               value={formData.age}
-              placeholder="Возраст"
+              placeholder="Age"
               onChange={handleChange}
               required
             />
-            <button type="submit">Обновить пользователя</button>
+            <button type="submit">Update User</button>
           </form>
         </div>
       )}
