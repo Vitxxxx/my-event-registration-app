@@ -6,7 +6,6 @@ const router = express.Router();
 const client = require("../config/db");
 
 
-
 router.get("/", async (req, res) => {
   try {
     const data = await client
